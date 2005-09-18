@@ -1,0 +1,35 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1357
+
+Larlet.vim provides an enhanced Insert mode: It allows you to type larger symbols, i.e. symbols composed of several characters.  This is rather fun than a utility.
+
+If you're looking for a real utility, you might better use Unix' banner or surf to http://www.figlet.org/
+
+To toggle Larlet mode press F8 in Insert mode or Normal mode.  This maps one key per symbol.  Currently, the following keys are mapped:
+
+    abcdefghijklmnopqrstuvwxyz.,;!?=+-*:'`#()[]{}^~%$&0123456789/\"_@<>|EL
+
+Case is not distinguished, only lower letter keys get mapped.  The upper keys are free to map special symbols (e.g. E - euro symbol, L - lambda).  The mappings are per buffer, thus there should be no inference with the rest of the session (except the globally set 'listchars' option reminds you to not use hard tabs).
+
+v0.04: An alternative key for toggling can be mapped this way:
+    :nmap <buffer> <F8> <plug>Larlet_ToggleKeymap
+    :imap <buffer> <F8> <c-o><plug>Larlet_ToggleKeymap
+
+Editing possibilities are - of course - limited. Symbols will always be appended at the end of a d-line [1].  i_Space adds d-spaces, i_Enter creates d-newlines.  i_Backspace deletes symbols from the end of a d-line, by looking for a d-space backwards.
+
+Symbol size is fixed to 2 lines x 5 columns.  Symbols are arranged tightly in the text, thus "type-setting" is not monospace.
+
+(v0.10 only) A menu "Larlet" will be installed for setting some options. [2]
+(v0.04) Letter and word spacing can be changed with :SpaceSet
+
+(v0.10 only)
+'fileformat' of the script is dos, if you're on unix you have to convert it.  Ok, this script is not written in a very clean manner, make sure to use it in an extra vim session.
+
+Example:
+.  /  /|  /¯) /  /¯¯ -/-  | / / /|/)
+. /_ /¯| /¯\ /_ /_¯  /  o |/ / /  /
+(this looks like crap, you'll need a monospace font for viewing)
+
+----------
+[1] As symbols need two buffer lines of text, some above terms get a "d" prepended for "double"
+[2] Note: v0.10 is a typo, it should be v0.01
+
